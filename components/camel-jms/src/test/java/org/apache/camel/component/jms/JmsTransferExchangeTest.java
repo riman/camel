@@ -38,6 +38,7 @@ public class JmsTransferExchangeTest extends CamelTestSupport {
     public void testBodyOnly() throws Exception {
         MockEndpoint mock = getMockEndpoint("mock:result");
         mock.expectedBodiesReceived("Hello World");
+        mock.expectedHeaderReceived("JMSDestination", "queue://foo");
 
         template.sendBody("direct:start", "Hello World");
 
@@ -49,6 +50,7 @@ public class JmsTransferExchangeTest extends CamelTestSupport {
         MockEndpoint mock = getMockEndpoint("mock:result");
         mock.expectedBodiesReceived("Hello World");
         mock.expectedHeaderReceived("foo", "cheese");
+        mock.expectedHeaderReceived("JMSDestination", "queue://foo");
 
         template.sendBodyAndHeader("direct:start", "Hello World", "foo", "cheese");
 
@@ -61,6 +63,7 @@ public class JmsTransferExchangeTest extends CamelTestSupport {
         mock.expectedBodiesReceived("Hello World");
         mock.expectedHeaderReceived("foo", "cheese");
         mock.expectedPropertyReceived("bar", 123);
+        mock.expectedHeaderReceived("JMSDestination", "queue://foo");
 
         template.send("direct:start", new Processor() {
             public void process(Exchange exchange) throws Exception {
