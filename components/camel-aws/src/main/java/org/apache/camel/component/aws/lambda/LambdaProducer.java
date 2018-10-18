@@ -52,7 +52,7 @@ import com.amazonaws.util.IOUtils;
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
-import org.apache.camel.impl.DefaultProducer;
+import org.apache.camel.support.DefaultProducer;
 import org.apache.camel.util.CastUtils;
 import org.apache.camel.util.ObjectHelper;
 import org.slf4j.Logger;
@@ -379,7 +379,7 @@ public class LambdaProducer extends DefaultProducer {
             }
             result = lambdaClient.createEventSourceMapping(request);
         } catch (AmazonServiceException ase) {
-            LOG.trace("createEventSourceMapping command returned the error code {}", ase.getErrorCode());
+            log.trace("createEventSourceMapping command returned the error code {}", ase.getErrorCode());
             throw ase;
         }
         Message message = getMessageForResponse(exchange);
@@ -406,7 +406,7 @@ public class LambdaProducer extends DefaultProducer {
             }
             result = lambdaClient.deleteEventSourceMapping(request);
         } catch (AmazonServiceException ase) {
-            LOG.trace("deleteEventSourceMapping command returned the error code {}", ase.getErrorCode());
+            log.trace("deleteEventSourceMapping command returned the error code {}", ase.getErrorCode());
             throw ase;
         }
         Message message = getMessageForResponse(exchange);
@@ -428,7 +428,7 @@ public class LambdaProducer extends DefaultProducer {
             }
             result = lambdaClient.listEventSourceMappings(request);
         } catch (AmazonServiceException ase) {
-            LOG.trace("listEventSourceMapping command returned the error code {}", ase.getErrorCode());
+            log.trace("listEventSourceMapping command returned the error code {}", ase.getErrorCode());
             throw ase;
         }
         Message message = getMessageForResponse(exchange);
