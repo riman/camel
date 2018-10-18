@@ -62,7 +62,7 @@
 * [How to run Camel in an OSGi container]
 * [Using OSGi blueprint with Camel]
 * [Working with Camel and SCR]
-* Working with REST and [Rest DSL]
+* Working with REST andï¿½[Rest DSL]
 
 ### [Examples](examples.adoc)
 
@@ -351,6 +351,7 @@
 	* [Olingo4](olingo4-component.adoc)
 	* [OPC UA Client](milo-client-component.adoc)
 	* [OPC UA Server](milo-server-component.adoc)
+	* [OpenShift](openshift-component.adoc)
 	* [Openshift Build Config](openshift-build-configs-component.adoc)
 	* [Openshift Builds](openshift-builds-component.adoc)
 	* [OpenStack Cinder](openstack-cinder-component.adoc)
